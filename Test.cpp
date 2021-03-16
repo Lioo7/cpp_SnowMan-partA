@@ -25,7 +25,7 @@ string nospaces(string input)
     return input;
 }
 
-TEST_CASE("Valid and equal snowman code")
+TEST_CASE("Valid and equal snowman code - no spaces")
 {
     /* Assert True */
     CHECK(nospaces(snowman(11114411)) == nospaces("_===_\n(.,.)\n( : )\n( : )"));
@@ -53,7 +53,12 @@ TEST_CASE("Valid and equal snowman code")
     CHECK(nospaces(snowman(11113311)) == nospaces("_===_\n(.,.)\n/( : )\\\n( : )"));
 }
 
-TEST_CASE("Valid but not equal snowman code")
+TEST_CASE("Valid and equal snowman code - with spaces") {
+    CHECK(snowman(11114411) == string("_===_\n(.,.)\n( : )\n( : )"));
+    CHECK(snowman(33232124) == string("   _\n  /_\\\n\\(o_O)\n (] [)>\n (   )"));
+}
+
+TEST_CASE("Valid but not equal snowman code - no spaces")
 {
     /* Assert False */
     CHECK(nospaces(snowman(33232124)) != nospaces("_===_\n\\(o_O)\n(] [)>\n(   )"));
